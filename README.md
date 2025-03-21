@@ -3,18 +3,16 @@ Performance comparison  of `copystructure.Copy(...)` between Wasm and native bui
 
 ## Basic usage
 
-To build/execute both:
+To build/execute both Wasm and native benchmarks:
 ```
 ./run.sh
 ```
 
-Runs both Wasm and native builds of a simple usage of `copystructure.Copy(...)` to show the performance differences between the two.
-
 ## Details
 
-See the `wasm/` and `native/` directories for the respective code.
+Test loads a "largish" example data set from `testdata.json`, then uses `go test` benchmarks to measure the performance of `copystructure.Copy(...)`.
+For both `GOOS=wasip1 GOARCH=wasm`, and native (`GOOS` and `GOARCH` unset) builds.
 
-Both implement a simple usage of reading a "largish" dataset from `testdata.json`, then using `copystructure.Copy(...)` to duplicate this data.
 The Wasm build tends to be significantly slower.
 
 

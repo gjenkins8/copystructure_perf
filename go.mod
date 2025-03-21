@@ -1,4 +1,4 @@
-module github.com/gjenkins8/copystructure_perf/copystructuretest
+module github.com/gjenkins8/copystructure_perf
 
 go 1.24.0
 
