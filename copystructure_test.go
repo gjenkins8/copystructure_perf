@@ -1,4 +1,4 @@
-package copystructure_test
+package test
 
 import (
 	"testing"
@@ -26,6 +26,18 @@ func BenchmarkDoCopyStructure(b *testing.B) {
 
 	for b.Loop() {
 		_, err := copystructure.Copy(testData)
+
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
+func BenchmarkDoHelmCopy(b *testing.B) {
+	testData := loadTestData()
+
+	for b.Loop() {
+		_, err := HelmCopy(testData)
 
 		if err != nil {
 			panic(err)
